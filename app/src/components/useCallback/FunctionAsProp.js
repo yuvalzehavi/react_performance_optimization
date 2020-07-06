@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 import OutputLogger from "../general/OutputLogger";
 
@@ -6,19 +6,20 @@ const Container = React.memo(({ message, func }) => {
   return <OutputLogger message={message} />;
 });
 
+
 /**
- * This component holds button child which calls useState() when clicked
- * One child is memoized, and so is the callback passed on to it as prop
- * So when the parent updates, the child would not
+ * This component holds a button which calls useState() when clicked,
+ * And another memoized child. However the callback passed as prop is re-created on each render
+ * So when the parent updates, so does its memoized child,
  */
-const UseCallbackFuncAsProp = () => {
+
+const FunctionAsProp = () => {
   const [_, setProp] = useState(0);
   const message = "Child is rendering....";
 
-  const setRandProp = useCallback(() => {
+  const setRandProp = () => {
     setProp(Math.round(Math.random() * 1000));
-  }, []);
-
+  };
   return (
     <div>
       <button onClick={setRandProp}>trigger re-render in parent</button>
@@ -27,4 +28,4 @@ const UseCallbackFuncAsProp = () => {
   );
 };
 
-export default UseCallbackFuncAsProp;
+export default FunctionAsProp;

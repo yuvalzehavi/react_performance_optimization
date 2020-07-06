@@ -22,8 +22,8 @@ const Memo = () => {
   return (
     <div>
       <button onClick={setRandProp}>trigger re-render in parent</button>
-      <OutputLogger message={"Output logger --without-- React.memo"} />
-      <LoggerWithMemo message={"Output logger with React.memo"} />
+        <LoggerWithMemo message={"Output logger with React.memo"} />
+        <OutputLogger message={"Output logger --without-- React.memo"} />
     </div>
   );
 };

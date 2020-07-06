@@ -18,7 +18,7 @@ const CustomHook = () => {
   const [num, generateRandNum] = useRandNum();
   const maxCalls = useRef(0);
   useEffect(() => {
-    if (maxCalls.current < 50) {
+    if (maxCalls.current < 49) {
       generateRandNum();
       ++maxCalls.current;
     }

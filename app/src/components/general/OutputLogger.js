@@ -7,7 +7,7 @@ const OutputLogger = ({message}) => {
   return (
     <div>
       {messages.current.map((str, index) => {
-        return <p key={index}>{str}</p>;
+        return <p key={index}>{`${index+1}) ${str}`}</p>;
       })}
     </div>
   );

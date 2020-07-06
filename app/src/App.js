@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   height: 100%;
   & > :nth-child(1) {
     border-right: 1px solid;
-    padding-right: 20px;
+    padding: 0 20px;
   }
   & > :nth-child(2) {
     padding-left: 20px;

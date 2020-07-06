@@ -39,8 +39,8 @@ const ComponentsMenu = ({ onComponentSelected }) => {
       {getButton("MemoWithAreEqual", "React.memo with equality check")}
       <Divider />
       {getTitle("useCallback")}
-      {getButton("AnonymousFuncAsProp", " Anonymous Function as Prop")}
-      {getButton("UseCallbackFuncAsProp", "Memoized Function as Prop")}
+      {getButton("FunctionAsProp", "Function as Prop")}
+      {getButton("FunctionAsPropMemoized", "Memoized Function as Prop")}
       {getButton("CustomHook", "Custom Hook")}
       {getButton("UseCallbackWithCustomHook", "useCallback With Custom Hook")}
       <Divider />

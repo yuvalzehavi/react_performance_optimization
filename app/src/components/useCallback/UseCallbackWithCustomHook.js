@@ -13,7 +13,7 @@ const useRandNum = (defaultValue = 0) => {
 
 /**
  * This component uses a useEffect hook with a setter callback (generateRandNum) as a dependency
- * the setter function is memoized, so ther refernce to it would not change when called
+ * the setter function is memoized, so the reference to it would not change when called
  */
 
 
