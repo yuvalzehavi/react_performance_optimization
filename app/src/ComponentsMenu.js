@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
+import { Typography, Divider } from "@material-ui/core";
 
-import StyledButton from "./components/general/StyledButton";
-import Divider from "./components/general/Divider";
+import { AppContext } from "./context/AppContext";
+import StyledButton from "./components/general/PrimaryButton";
 
 const StyledTitle = styled.div`
-  background: #2b2b2b;
-  display: table;
-  margin: 8px 0;
-  span {
-    color: #f4dc00;
+  && {
+    background: #2b2b2b;
+    display: table;
+    margin: 0.8rem 0;
+    padding: 0.2rem;
+    p {
+      color: #f4dc00;
+    }
   }
 `;
 
-const ComponentsMenu = ({ onComponentSelected }) => {
-  const onClick = (e) => onComponentSelected(e.target.id);
+const ComponentsMenu = () => {
+  const { onComponentSelected } = useContext(AppContext);
+
+  useEffect(() => {
+    onComponentSelected("SplitState");
+  }, []);
+
+  const onClick = (e) => {
+    onComponentSelected(e.target.id);
+  };
   const getButton = (id, text) => (
     <StyledButton id={id} onClick={onClick}>
       {text}
@@ -23,7 +35,7 @@ const ComponentsMenu = ({ onComponentSelected }) => {
 
   const getTitle = (title) => (
     <StyledTitle>
-      <span>{`{ ${title} }`}</span>
+      <Typography>{`{ ${title} }`}</Typography>
     </StyledTitle>
   );
 
@@ -42,7 +54,7 @@ const ComponentsMenu = ({ onComponentSelected }) => {
       {getButton("FunctionAsProp", "Function as Prop")}
       {getButton("FunctionAsPropMemoized", "Memoized Function as Prop")}
       {getButton("CustomHook", "Custom Hook")}
-      {getButton("UseCallbackWithCustomHook", "useCallback With Custom Hook")}
+      {getButton("UseCallbackWithCustomHook", "3_useCallback With Custom Hook")}
       <Divider />
       {getTitle("useMemo")}
       {getButton("UseMemo", "useMemo")}

@@ -1,33 +1,30 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import OutputLogger from "../general/OutputLogger";
 
 const useRandNum = (defaultValue = 0) => {
   const [value, setValue] = useState(defaultValue);
-  const generateRandNum = useCallback(
-    () => setValue(Math.round(Math.random() * 1000)),
-    [setValue]
-  );
+  const generateRandNum = () => setValue(Math.round(Math.random() * 1000));
   return [value, generateRandNum];
 };
 
+
 /**
  * This component uses a useEffect hook with a setter callback (generateRandNum) as a dependency
- * the setter function is memoized, so the reference to it would not change when called
+ * Since generateRandNum is not memoized, it will be re-created each time it's called, resulting in infinite re-renders
  */
 
-
-const UseCallbackWithCustomHook = () => {
+const CustomHook = () => {
   const [num, generateRandNum] = useRandNum();
   const maxCalls = useRef(0);
   useEffect(() => {
-    if (maxCalls.current < 50) {
+    if (maxCalls.current < 49) {
       generateRandNum();
       ++maxCalls.current;
     }
   }, [generateRandNum]);
 
-  return <OutputLogger message={"useCallback With Custom Hook rendering..."} />;
+  return <OutputLogger message={"3_useCallback With Custom Hook rendering..."} />;
 };
 
-export default UseCallbackWithCustomHook;
+export default CustomHook;
