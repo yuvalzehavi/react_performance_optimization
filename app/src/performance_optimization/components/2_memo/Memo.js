@@ -1,11 +1,11 @@
 import React, { useState, memo } from "react";
 import styled from "styled-components";
 
-import OutputLogger from "../general/OutputLogger";
+import OutputLogger from "../../../general/OutputLogger";
 import {Divider, Typography} from "@material-ui/core";
-import CodeDescription from "../general/CodeDescription";
-import DescriptionTypography from "../general/DescriptionTypography";
-import SecondaryButton from "../general/SecondaryButton";
+import CodeDescription from "../../../general/CodeDescription";
+import DescriptionTypography from "../../../general/DescriptionTypography";
+import SecondaryButton from "../../../general/SecondaryButton";
 
 const LoggerWithMemo = memo(({ message }) => {
   return <OutputLogger message={message} />;

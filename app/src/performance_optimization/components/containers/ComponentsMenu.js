@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Typography, Divider } from "@material-ui/core";
 
-import { AppContext } from "./context/AppContext";
-import StyledButton from "./components/general/PrimaryButton";
+import { AppContext } from "../../context/AppContext";
+import StyledButton from "../../../general/PrimaryButton";
 
 const StyledTitle = styled.div`
   && {
@@ -54,7 +54,7 @@ const ComponentsMenu = () => {
       {getButton("FunctionAsProp", "Function as Prop")}
       {getButton("FunctionAsPropMemoized", "Memoized Function as Prop")}
       {getButton("CustomHook", "Custom Hook")}
-      {getButton("UseCallbackWithCustomHook", "3_useCallback With Custom Hook")}
+      {getButton("UseCallbackWithCustomHook", "useCallback With Custom Hook")}
       <Divider />
       {getTitle("useMemo")}
       {getButton("UseMemo", "useMemo")}

@@ -1,48 +1,28 @@
-import React, { useReducer } from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 
-import OutputLogger from "../general/OutputLogger";
+import OutputLogger from "../../../general/OutputLogger";
 import { Divider, Typography } from "@material-ui/core";
-import CodeDescription from "../general/CodeDescription";
-import DescriptionTypography from "../general/DescriptionTypography";
-import SecondaryButton from "../general/SecondaryButton";
+import CodeDescription from "../../../general/CodeDescription";
+import styled from "styled-components";
+import DescriptionTypography from "../../../general/DescriptionTypography";
+import SecondaryButton from "../../../general/SecondaryButton";
 import { colors } from "./colorsArray";
-
-const StyledDiv = styled.div``;
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "changeName":
-      return { ...state, name: action.name };
-    case "changeAge":
-      return { ...state, age: action.age };
-    case "changeColor":
-      return { ...state, color: action.color };
-    case "changeAll":
-      return {
-        ...state,
-        name: action.name,
-        age: action.age,
-        color: action.color,
-      };
-    default:
-      throw new Error("Unexpected action");
-  }
-};
 
 /**
  * This component holds a combined state (one object with multiple properties)
- * Updating this state via useReducer will only trigger a single re-render
+ * Updating this state only happens once per click, so multiple re-renders will not occur.
  */
 
-const CombinedStateWithReducer = () => {
+const StyledDiv = styled.div``;
+
+const CombinedState = () => {
   const initialState = {
     name: "name",
     age: "age",
     color: "color",
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, setState] = useState(initialState);
 
   const setRandName = () => `name ${Math.round(Math.random() * 1000)}`;
 
@@ -53,8 +33,8 @@ const CombinedStateWithReducer = () => {
     `color: ${colors[Math.floor(Math.random() * colors.length)]}`;
 
   const setRandForAll = () => {
-    dispatch({
-      type: "changeAll",
+    setState({
+      ...state,
       name: setRandName(),
       age: setRandAge(),
       color: setRandColor(),
@@ -72,28 +52,30 @@ const CombinedStateWithReducer = () => {
   return (
     <StyledDiv>
       <Typography variant={"h6"} className={"title"}>
-        Combined State With Reducer
+        Combined State
       </Typography>
       <CodeDescription>
+        <Typography>
+          const [state, setState] = useState(initialState);
+        </Typography>
         <Typography>
           {`const initialState = {`} <br />
         </Typography>
         <Typography className={"indentedText"}>
-          <span>{`name: ${state.name}, `} </span>
-          <span>{`age: ${state.age}`},</span>
+          <span>{`name: ${state.name}, `}</span>
+          <span>{`age: ${state.age}`}, </span>
           <span>{`color: ${state.color}`} </span>
         </Typography>
         <Typography> {`};`} </Typography>
-        <Typography>
-          const [state, dispatch] = useReducer(reducer, initialState);
-        </Typography>
       </CodeDescription>
       <DescriptionTypography variant={"subtitle2"}>
         This component holds a combined state (one object with multiple
         properties)
         <br />
-        Updating this state via useReducer will only trigger a single re-render
+        Updating this state only happens once per click, so multiple re-renders
+        will not occur.
       </DescriptionTypography>
+
       <div>
         <SecondaryButton onClick={setRandForAll}>
           set all properties
@@ -104,9 +86,9 @@ const CombinedStateWithReducer = () => {
       </div>
       <Divider />
 
-      <OutputLogger message={"CombinedState with reducer rendering...."} />
+      <OutputLogger message={"CombinedState rendering...."} />
     </StyledDiv>
   );
 };
 
-export default CombinedStateWithReducer;
+export default CombinedState;

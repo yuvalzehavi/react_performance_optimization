@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Divider, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
-import OutputLogger from "../general/OutputLogger";
-import SecondaryButton from "../general/SecondaryButton";
-import DescriptionTypography from "../general/DescriptionTypography";
-import CodeDescription from "../general/CodeDescription";
+import OutputLogger from "../../../general/OutputLogger";
+import SecondaryButton from "../../../general/SecondaryButton";
+import DescriptionTypography from "../../../general/DescriptionTypography";
+import CodeDescription from "../../../general/CodeDescription";
 import { colors } from "./colorsArray";
 
 /**

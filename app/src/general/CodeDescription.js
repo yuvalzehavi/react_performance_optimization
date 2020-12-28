@@ -8,6 +8,9 @@ const StyledDiv = styled.div`
   .indentedText span {
     display: block;
     text-indent: 1rem;
+    &.indentedText {
+      text-indent: 2rem;
+    }
   }
 `;
 export default ({ children }) => {
