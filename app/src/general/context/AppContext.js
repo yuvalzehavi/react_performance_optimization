@@ -4,8 +4,8 @@ export const AppContext = createContext();
 
 export default ({ children }) => {
   const [componentName, setComponentName] = useState();
+  const [moduleDescription, setModuleDescription] = useState();
   const onComponentSelected = (name) => {
-    console.log('yep!', name)
     setComponentName(name);
   };
 
@@ -13,7 +13,9 @@ export default ({ children }) => {
     <AppContext.Provider
       value={{
         onComponentSelected,
+        setModuleDescription,
         componentName,
+        moduleDescription
       }}
     >
       {children}

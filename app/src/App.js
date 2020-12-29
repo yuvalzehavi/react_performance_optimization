@@ -5,6 +5,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import GlobalStyle from "./globalStyle";
 import MuiTheme from "./theme/materialUiTheme";
 import PagesRouter from "./routes/PagesRouter";
+import AppContextProvider from "./general/context/AppContext";
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
       <StyledThemeProvider theme={MuiTheme}>
         <MuiThemeProvider theme={MuiTheme}>
           <GlobalStyle />
-          <PagesRouter />
+          <AppContextProvider>
+            <PagesRouter />
+          </AppContextProvider>
         </MuiThemeProvider>
       </StyledThemeProvider>
     </>

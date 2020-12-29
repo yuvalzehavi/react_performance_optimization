@@ -10,4 +10,8 @@ export default createMuiTheme({
       },
     },
   },
+  typography: {
+    htmlFontSize: 10,
+    useNextVariants: true,
+  },
 });

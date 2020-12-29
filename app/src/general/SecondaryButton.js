@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 
 const StyledButton = styled(Button)`
   && {
-    margin: 5px;
+    margin: .5rem;
     text-transform: none;
     & > * {
       pointer-events: none;
