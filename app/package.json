@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "prettier": "prettier --single-quote --trailing-comma none --arrow-parens=avoid --write ./src/**/*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -33,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0"
   }
 }

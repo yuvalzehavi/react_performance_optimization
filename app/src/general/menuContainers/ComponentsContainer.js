@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { AppContext } from "../context/AppContext";
+import { AppContext } from '../../context/AppContext';
 
-const ComponentsContainer = ({ componentsDictionary }) => {
+export default function ComponentsContainer({ componentsDictionary }) {
   const { componentName } = useContext(AppContext);
   const DynamicComponent = componentsDictionary[componentName];
   return DynamicComponent ? (
-    <div className={"componentsContainer"}>
+    <div className={'componentsContainer'}>
       <DynamicComponent />
     </div>
   ) : null;
-};
-
-export default ComponentsContainer;
+}

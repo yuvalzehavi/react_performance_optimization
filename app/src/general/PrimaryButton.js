@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Button } from "@material-ui/core";
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from '@material-ui/core';
 
 const StyledButton = styled(Button)`
   && {
@@ -15,7 +15,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default ({ onClick, isSelected, children, ...rest }) => {
+export default function PrimaryButton({
+  onClick,
+  isSelected,
+  children,
+  ...rest
+}) {
   return (
     <StyledButton
       color="primary"
@@ -27,4 +32,4 @@ export default ({ onClick, isSelected, children, ...rest }) => {
       {children}
     </StyledButton>
   );
-};
+}

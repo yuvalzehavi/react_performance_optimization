@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Button } from "@material-ui/core";
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from '@material-ui/core';
 
 const StyledButton = styled(Button)`
   && {
-    margin: .5rem;
+    margin: 0.5rem;
     text-transform: none;
     & > * {
       pointer-events: none;
@@ -12,16 +12,16 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default ({ onClick, children, ...rest }) => {
+export default function SecondaryButton({ onClick, children, ...rest }) {
   return (
     <StyledButton
       color="secondary"
       variant="contained"
-      className={"ComponentsMenu"}
+      className={'ComponentsMenu'}
       onClick={onClick}
       {...rest}
     >
       {children}
     </StyledButton>
   );
-};
+}

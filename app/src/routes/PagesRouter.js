@@ -1,12 +1,13 @@
-import React, { useLayoutEffect } from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import React, { useLayoutEffect } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 
-import history from "./history";
-import PerformanceOptimization from "../performance_optimization/";
-import ReactHooks from "../react_hooks/";
-import Header from "../Header";
-import MainMenu from "../MainMenu/MainMenu";
-import styled from "styled-components";
+import history from './history';
+import PerformanceOptimization from './performance_optimization/';
+import ReactHooks from './react_hooks/';
+import ReactContext from './react_context/';
+import Header from '../Header';
+import MainMenu from './MainMenu/MainMenu';
+import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -29,12 +30,9 @@ const StyledContainer = styled.div`
 `;
 
 const PagesRouter = () => {
-  // const { pathname } = history.location;
-
   useLayoutEffect(() => {
     //initial routing
-    // history.push('performance');
-    history.push("/");
+    history.push('/react-context');
   }, []);
 
   return (
@@ -44,10 +42,11 @@ const PagesRouter = () => {
         <StyledContainer>
           <Switch>
             <Route
-              path={["/performance-optimization"]}
+              path={['/performance-optimization']}
               component={PerformanceOptimization}
             />
-            <Route path={["/react-hooks"]} component={ReactHooks} />
+            <Route path={['/react-hooks']} component={ReactHooks} />
+            <Route path={['/react-context']} component={ReactContext} />
             <Route component={MainMenu} />
           </Switch>
         </StyledContainer>

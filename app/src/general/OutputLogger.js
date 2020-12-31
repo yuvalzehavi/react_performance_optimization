@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { Typography } from "@material-ui/core";
-import styled from "styled-components";
+import React, { useRef } from 'react';
+import { Typography } from '@material-ui/core';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-const OutputLogger = ({ message, skipIdenticalMessage }) => {
+export default function OutputLogger({ message, skipIdenticalMessage }) {
   const messages = useRef([]);
 
   if (
@@ -25,7 +25,7 @@ const OutputLogger = ({ message, skipIdenticalMessage }) => {
       {messages.current.map((str, index) => {
         return (
           <StyledDiv key={index}>
-            <Typography variant={"subtitle2"} color={"primary"}>{`${
+            <Typography variant={'subtitle2'} color={'primary'}>{`${
               index + 1
             })`}</Typography>
             <Typography>{str}</Typography>
@@ -34,6 +34,4 @@ const OutputLogger = ({ message, skipIdenticalMessage }) => {
       })}
     </>
   );
-};
-
-export default OutputLogger;
+}

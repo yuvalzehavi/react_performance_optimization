@@ -1,19 +1,18 @@
-import React, { useEffect, useContext } from "react";
-import styled from "styled-components";
-import { Typography, Divider } from "@material-ui/core";
+import React, { useEffect, useContext } from 'react';
+import { Typography, Divider } from '@material-ui/core';
 
-import { AppContext } from "../context/AppContext";
-import StyledButton from "../PrimaryButton";
-import StyledMenuTitle from "../StyledMenuTitle";
+import { AppContext } from '../../context/AppContext';
+import StyledButton from '../PrimaryButton';
+import StyledMenuTitle from '../StyledMenuTitle';
 
-const ComponentsMenu = ({ menuItems }) => {
+export default function ComponentsMenu({ menuItems }) {
   const { onComponentSelected, componentName } = useContext(AppContext);
 
   useEffect(() => {
     onComponentSelected(menuItems[0].items[0].componentId);
   }, []);
 
-  const onClick = (e) => {
+  const onClick = e => {
     onComponentSelected(e.target.id);
   };
   const getButton = (id, text, key) => (
@@ -27,7 +26,7 @@ const ComponentsMenu = ({ menuItems }) => {
     </StyledButton>
   );
 
-  const getTitle = (title) => (
+  const getTitle = title => (
     <StyledMenuTitle>
       <Typography>{`{ ${title} }`}</Typography>
     </StyledMenuTitle>
@@ -47,6 +46,5 @@ const ComponentsMenu = ({ menuItems }) => {
     });
   };
 
-  return <div className={"componentsMenu"}>{mapItems()}</div>;
-};
-export default ComponentsMenu;
+  return <div className={'componentsMenu'}>{mapItems()}</div>;
+}
