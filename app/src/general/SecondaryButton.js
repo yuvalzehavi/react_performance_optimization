@@ -17,7 +17,7 @@ export default function SecondaryButton({ onClick, children, ...rest }) {
     <StyledButton
       color="secondary"
       variant="contained"
-      className={'ComponentsMenu'}
+      className={'button'}
       onClick={onClick}
       {...rest}
     >

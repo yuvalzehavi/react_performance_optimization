@@ -50,6 +50,11 @@ const items = [
     id: 'control-child-from-parent',
     buttonText: 'Control a Child from Parent',
     textDescription: 'Different patterns to solve child-parent control'
+  },
+  {
+    id: 'exercise',
+    buttonText: 'Exercise',
+    textDescription: 'Create your own app and implement your React training'
   }
 ];
 export default function MainMenu() {

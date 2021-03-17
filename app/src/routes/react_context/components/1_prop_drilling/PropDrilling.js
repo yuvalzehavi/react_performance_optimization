@@ -10,7 +10,7 @@ import StyledHeader from '../../../../general/StyledHeader';
 const colorsArr = ['black', 'red', 'blue', 'green', 'purple', 'cyan'];
 
 const StyledTypography = styled(Typography)`
-  color: ${props => props.currentColor};
+  color: ${props => props.current_color};
 `;
 const StyledDiv = styled.div`
   margin-bottom: 2rem;
@@ -68,7 +68,7 @@ const IntermediateParent = props => {
 const IntermediateChild1 = props => {
   return (
     <StyledDiv>
-      <StyledTypography currentColor={props.currentColor}>
+      <StyledTypography current_color={props.currentColor}>
         IntermediateChild
       </StyledTypography>
       <Divider />
@@ -80,7 +80,7 @@ const IntermediateChild1 = props => {
 const IntermediateChild2 = props => {
   return (
     <StyledDiv>
-      <StyledTypography currentColor={props.currentColor}>
+      <StyledTypography current_color={props.currentColor}>
         IntermediateChild
       </StyledTypography>
       <Divider />
@@ -101,7 +101,7 @@ const FinalChild = props => {
 
   return (
     <StyledDiv>
-      <StyledTypography currentColor={currentColor}>
+      <StyledTypography current_color={currentColor}>
         I am the final child!!!!!
       </StyledTypography>
       <SecondaryButton onClick={onChangeCountClick}>Set count</SecondaryButton>
