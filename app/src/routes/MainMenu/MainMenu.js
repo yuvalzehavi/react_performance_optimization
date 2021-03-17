@@ -44,7 +44,12 @@ const items = [
   {
     id: 'react-context',
     buttonText: 'React Context',
-    textDescription: 'Learn Performance Optimization Hooks'
+    textDescription: 'Using React Context'
+  },
+  {
+    id: 'control-child-from-parent',
+    buttonText: 'Control a Child from Parent',
+    textDescription: 'Different patterns to solve child-parent control'
   }
 ];
 export default function MainMenu() {

@@ -5,6 +5,7 @@ import history from './history';
 import PerformanceOptimization from './performance_optimization/';
 import ReactHooks from './react_hooks/';
 import ReactContext from './react_context/';
+import ControlChildFromParent from './controlling_child_from_parent/';
 import Header from '../Header';
 import MainMenu from './MainMenu/MainMenu';
 import styled from 'styled-components';
@@ -32,7 +33,7 @@ const StyledContainer = styled.div`
 const PagesRouter = () => {
   useLayoutEffect(() => {
     //initial routing
-    history.push('/react-context');
+    history.push('/control-child-from-parent');
   }, []);
 
   return (
@@ -47,6 +48,7 @@ const PagesRouter = () => {
             />
             <Route path={['/react-hooks']} component={ReactHooks} />
             <Route path={['/react-context']} component={ReactContext} />
+            <Route path={['/control-child-from-parent']} component={ControlChildFromParent} />
             <Route component={MainMenu} />
           </Switch>
         </StyledContainer>
